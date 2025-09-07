@@ -1,0 +1,19 @@
+
+body { margin:0; font-family:Arial,sans-serif; background:linear-gradient(135deg,#A9D6E5,#BEE3DB); color:#333; }
+header, footer { background:rgba(255,255,255,0.8); padding:20px; text-align:center; border-radius:15px; margin:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+nav a { margin:0 10px; text-decoration:none; color:#555; font-weight:bold; transition:color 0.3s; }
+nav a:hover { color:#7EC8E3; }
+.main-container { text-align:center; margin-top:50px; }
+.cards-container { display:flex; flex-wrap:wrap; justify-content:center; margin:20px; }
+.card { background:rgba(255,255,255,0.7); padding:20px; margin:15px; border-radius:15px; width:180px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:all 0.3s ease; }
+.gold { border:3px solid #FFFACD; }
+.platinum { border:3px solid #E5E4E2; }
+.diamond { border:3px solid #B9F2FF; }
+.hover-scale:hover { transform:scale(1.05); box-shadow:0 8px 15px rgba(0,0,0,0.2); }
+.hover-glow:hover { box-shadow:0 0 20px #B9F2FF; transform:scale(1.05); }
+button.glow-btn { background:#7EC8E3; color:#fff; border:none; padding:10px 20px; border-radius:10px; cursor:pointer; transition:all 0.3s ease; }
+button.glow-btn:hover { background:#5CA7C9; box-shadow:0 0 15px #7EC8E3; }
+.fade-in { opacity:0; animation:fadeIn 1s forwards; }
+@keyframes fadeIn { to { opacity:1; } }
+input,textarea { margin:10px 0; padding:10px; border-radius:10px; border:1px solid #7EC8E3; width:80%; }
+form { text-align:center; margin-top:50px; }
