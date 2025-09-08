@@ -1,12 +1,19 @@
-<!doctype html>
-<html lang='en'>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Index</title>
+<title>POG-RocketLeague Clan</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <style>
-:root{--pastel-blue:#A7C7E7;--pastel-purple:#C7A7E7;--pastel-cream:#FDFDFD;--pastel-pink:#F7C7DB;--pastel-teal:#A7E7D7;--muted:#667085;}
+:root{
+  --pastel-blue:#A7C7E7;
+  --pastel-purple:#C7A7E7;
+  --pastel-cream:#FDFDFD;
+  --pastel-pink:#F7C7DB;
+  --pastel-teal:#A7E7D7;
+  --muted:#667085;
+}
 .bg-pastel{background:linear-gradient(135deg,var(--pastel-blue),var(--pastel-teal));}
 .card-bg{background: rgba(255,255,255,0.85); backdrop-filter: blur(6px);}
 .small-ad{background:linear-gradient(90deg,#F3F4F6,#E5E7EB); border:1px dashed rgba(0,0,0,0.06); padding:8px; border-radius:8px; font-size:0.85rem; color:var(--muted); text-align:center;}
@@ -35,11 +42,13 @@
     </nav>
   </div>
 </header>
+
 <main class="max-w-6xl mx-auto px-6 py-8">
   <div class="flex justify-end gap-3">
     <button id="access-toggle" class="px-3 py-1 rounded bg-white shadow">High Contrast</button>
     <button id="size-toggle" class="px-3 py-1 rounded bg-white shadow">Large Text</button>
   </div>
+
   <section class="grid md:grid-cols-2 gap-6 items-center mt-6">
     <div class="card-bg p-8 rounded-xl shadow-lg fade-in opacity-0">
       <h2 class="text-3xl font-bold">We da POGs</h2>
@@ -51,6 +60,7 @@
       </div>
       <div class="mt-6 text-sm text-gray-600">Upcoming Event: <strong>Clan Scrim - Sat 8pm</strong></div>
     </div>
+
     <div class="card-bg p-8 rounded-xl shadow-lg fade-in opacity-0">
       <div class="grid grid-cols-2 gap-4">
         <div class="p-4 rounded-md bg-white/60 text-center">
@@ -89,6 +99,7 @@
     </div>
   </section>
 </main>
+
 <footer class="mt-12 card-bg rounded-t-2xl shadow-inner">
   <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
     <div class="text-sm text-gray-700">Page by Ethan — <em class="text-gray-600">"I made this website Lmao" — Ethan</em></div>
@@ -100,6 +111,7 @@
     </div>
   </div>
 </footer>
+
 <script src='assets/js/main.js'></script>
 </body>
 </html>
