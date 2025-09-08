@@ -1,45 +1,54 @@
-// Main JS for POG site: fade-ins, accessibility toggles, form handling, optional maintenance mode
 document.addEventListener('DOMContentLoaded', () => {
-  // fade-in elements
-  document.querySelectorAll('.fade-in').forEach(el => { el.classList.remove('opacity-0'); el.classList.add('fade'); });
+  // Fade-in effect
+  document.querySelectorAll('.fade-in').forEach(el => {
+    el.classList.remove('opacity-0');
+    el.classList.add('fade');
+  });
 
-  // accessibility toggle
+  // Accessibility toggles
+  const html = document.documentElement;
   const accToggle = document.getElementById('access-toggle');
   const sizeToggle = document.getElementById('size-toggle');
-  const html = document.documentElement;
+
   try {
-    const saved = localStorage.getItem('pog_access_mode');
-    if(saved === 'high-contrast') html.classList.add('high-contrast');
-    const savedSize = localStorage.getItem('pog_text_size');
-    if(savedSize === 'large') html.classList.add('large-text');
+    if(localStorage.getItem('pog_access_mode') === 'high-contrast') html.classList.add('high-contrast');
+    if(localStorage.getItem('pog_text_size') === 'large') html.classList.add('large-text');
   } catch(e){}
 
   if(accToggle) accToggle.addEventListener('click', () => {
     html.classList.toggle('high-contrast');
-    try { if(html.classList.contains('high-contrast')) localStorage.setItem('pog_access_mode','high-contrast'); else localStorage.removeItem('pog_access_mode'); } catch(e) {}
-  });
-  if(sizeToggle) sizeToggle.addEventListener('click', () => {
-    html.classList.toggle('large-text');
-    try { if(html.classList.contains('large-text')) localStorage.setItem('pog_text_size','large'); else localStorage.removeItem('pog_text_size'); } catch(e) {}
+    try {
+      if(html.classList.contains('high-contrast')) localStorage.setItem('pog_access_mode','high-contrast');
+      else localStorage.removeItem('pog_access_mode');
+    } catch(e) {}
   });
 
-  // contact form async (Formspree)
+  if(sizeToggle) sizeToggle.addEventListener('click', () => {
+    html.classList.toggle('large-text');
+    try {
+      if(html.classList.contains('large-text')) localStorage.setItem('pog_text_size','large');
+      else localStorage.removeItem('pog_text_size');
+    } catch(e) {}
+  });
+
+  // Contact form (Formspree)
   const form = document.querySelector('form[data-async="formspree"]');
   if(form) {
-    form.addEventListener('submit', function(e){
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      const url = form.action;
-      fetch(url, { method:'POST', body:new FormData(form), headers:{ 'Accept':'application/json' } })
-      .then(r => {
-        if(r.ok) { document.getElementById('success-msg').style.display='block'; form.reset(); }
-        else { alert('Oops! There was a problem.'); }
-      }).catch(()=> alert('Oops! There was a problem.'));
+      fetch(form.action, { method:'POST', body: new FormData(form), headers:{ 'Accept':'application/json' } })
+        .then(r => {
+          if(r.ok) {
+            const msg = document.getElementById('success-msg');
+            if(msg) msg.style.display = 'block';
+            form.reset();
+          } else {
+            alert('Oops! There was a problem.');
+          }
+        }).catch(()=> alert('Oops! There was a problem.'));
     });
   }
 
-  // OPTIONAL: enable maintenance manually by setting this to true
-  const maintenanceMode = false;
-  if(maintenanceMode && !location.pathname.endsWith('/maintenance.html')) {
-    location.href = 'maintenance.html';
-  }
+  // ✅ No maintenance redirect
+  // Do not add any code that changes location.href
 });
