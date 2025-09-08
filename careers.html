@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Careers</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
+:root{--pastel-blue:#A7C7E7;--pastel-purple:#C7A7E7;--pastel-cream:#FDFDFD;--pastel-pink:#F7C7DB;--pastel-teal:#A7E7D7;--muted:#667085;}
+.bg-pastel{background:linear-gradient(135deg,var(--pastel-blue),var(--pastel-teal));}
+.card-bg{background: rgba(255,255,255,0.85); backdrop-filter: blur(6px);}
+.small-ad{background:linear-gradient(90deg,#F3F4F6,#E5E7EB); border:1px dashed rgba(0,0,0,0.06); padding:8px; border-radius:8px; font-size:0.85rem; color:var(--muted); text-align:center;}
+.high-contrast .card-bg{background:#111 !important; color:#fff !important;}
+.high-contrast body{background:#000 !important; color:#fff !important;}
+.large-text body{font-size:1.125rem;}
+.fade{transition:all .45s ease;}
+</style>
+</head>
+<body class='bg-pastel min-h-screen font-sans text-gray-800'>
+<header class="w-full card-bg rounded-b-2xl shadow-md">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img src="https://i.imgur.com/1LF9oHu.png" alt="POG Logo" class="w-20 h-20 object-contain"/>
+      <div>
+        <h1 class="text-2xl font-extrabold text-gray-800">Careers</h1>
+        <p class="text-sm text-gray-600">Founded 2023 · Owner: Harry · Tournaments Won: 10</p>
+      </div>
+    </div>
+    <nav class="mt-3 md:mt-0 space-x-4 text-sm">
+      <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+      <a href="members.html" class="text-gray-700 hover:text-blue-600">Members</a>
+      <a href="news.html" class="text-gray-700 hover:text-blue-600">News</a>
+      <a href="who-we-are.html" class="text-gray-700 hover:text-blue-600">Who We Are</a>
+      <a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="max-w-6xl mx-auto px-6 py-12">
+  <button onclick="location.href='index.html'" class="mb-4 inline-block px-4 py-2 bg-pastel-teal text-white rounded-md">Back</button>
+  <div class="card-bg p-6 rounded-xl shadow">
+    <h2 class="text-2xl font-bold">Careers</h2>
+    <p class="mt-2 text-gray-600">Content for careers. Designed with the same pastel theme and UI. Small ad placeholder below.</p>
+    <div class="mt-4 small-ad">Ad placeholder</div>
+  </div>
+</main>
+<footer class="mt-12 card-bg rounded-t-2xl shadow-inner">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="text-sm text-gray-700">Page by Ethan — <em class="text-gray-600">"I made this website Lmao" — Ethan</em></div>
+    <div class="flex items-center gap-3 text-sm">
+      <a href="https://discord.gg/YOURCLAN" target="_blank" class="px-3 py-1 rounded-md bg-white shadow-sm text-gray-700">Discord</a>
+      <a href="#" class="px-3 py-1 rounded-md bg-white shadow-sm text-gray-700">Twitter</a>
+      <a href="#" class="px-3 py-1 rounded-md bg-white shadow-sm text-gray-700">Instagram</a>
+      <a href="#" class="px-3 py-1 rounded-md bg-white shadow-sm text-gray-700">YouTube</a>
+    </div>
+  </div>
+</footer>
+<script src='assets/js/main.js'></script>
+</body>
+</html>
