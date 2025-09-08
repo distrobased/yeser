@@ -1,7 +1,8 @@
-// Main JS for POG site: fade-ins, accessibility toggles, form handling, maintenance redirect
+// Main JS for POG site: fade-ins, accessibility toggles, form handling, optional maintenance mode
 document.addEventListener('DOMContentLoaded', () => {
   // fade-in elements
   document.querySelectorAll('.fade-in').forEach(el => { el.classList.remove('opacity-0'); el.classList.add('fade'); });
+
   // accessibility toggle
   const accToggle = document.getElementById('access-toggle');
   const sizeToggle = document.getElementById('size-toggle');
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedSize = localStorage.getItem('pog_text_size');
     if(savedSize === 'large') html.classList.add('large-text');
   } catch(e){}
+
   if(accToggle) accToggle.addEventListener('click', () => {
     html.classList.toggle('high-contrast');
     try { if(html.classList.contains('high-contrast')) localStorage.setItem('pog_access_mode','high-contrast'); else localStorage.removeItem('pog_access_mode'); } catch(e) {}
@@ -20,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     html.classList.toggle('large-text');
     try { if(html.classList.contains('large-text')) localStorage.setItem('pog_text_size','large'); else localStorage.removeItem('pog_text_size'); } catch(e) {}
   });
+
   // contact form async (Formspree)
   const form = document.querySelector('form[data-async="formspree"]');
   if(form) {
@@ -33,12 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }).catch(()=> alert('Oops! There was a problem.'));
     });
   }
-  // maintenance redirect: if index.html missing -> redirect to maintenance.html (useful when index removed)
-  fetch('/index.html', {method:'GET', cache:'no-store'}).then(resp => {
-    if(!resp.ok) {
-      if(!location.pathname.endsWith('/maintenance.html')) location.href = '/maintenance.html';
-    }
-  }).catch(()=>{
-    if(!location.pathname.endsWith('/maintenance.html')) location.href = '/maintenance.html';
-  });
+
+  // OPTIONAL: enable maintenance manually by setting this to true
+  const maintenanceMode = false;
+  if(maintenanceMode && !location.pathname.endsWith('/maintenance.html')) {
+    location.href = 'maintenance.html';
+  }
 });
